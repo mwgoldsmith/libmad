@@ -117,7 +117,7 @@ typedef mad_fixed_t mad_sample_t;
 
 #  undef ASO_ZEROCHECK
 
-# elif defined(FPM_64BIT)
+# elif defined(FPM_64BIT) || defined(_WIN64)
 
 /*
  * This version should be the most accurate if 64-bit types are supported by
@@ -139,7 +139,7 @@ typedef mad_fixed_t mad_sample_t;
 
 # elif defined(FPM_INTEL)
 
-#  if defined(_MSC_VER)
+#  if defined(_MSC_VER) 
 #   pragma warning(push)
 #   pragma warning(disable: 4035)  /* no return value */
 static __forceinline
@@ -497,3 +497,4 @@ mad_fixed_t mad_f_abs(mad_fixed_t);
 mad_fixed_t mad_f_div(mad_fixed_t, mad_fixed_t);
 
 # endif
+
